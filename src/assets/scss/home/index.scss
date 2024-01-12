@@ -1,0 +1,77 @@
+@import "../defaults/text.scss";
+@import "../defaults/colors.scss";
+
+#home {
+  position: relative;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: flex-end;
+
+  .home__hero {
+    flex-grow: 1;
+
+    margin-bottom: 48px;
+
+    padding-inline-start: 32px;
+
+    .home__hero-text {
+      position: relative;
+
+      max-width: 595px;
+      margin-bottom: 36px;
+
+      .h1 {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+
+    .home__hero-cta {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+
+      padding-block: 8px;
+      padding-inline: 32px 16px;
+
+      border-radius: 8px;
+
+      color: $text-opacity;
+      background-color: $secondary-opacity;
+
+      text-decoration: none;
+      font-size: $button;
+      text-transform: uppercase;
+
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.8);
+      }
+    }
+  }
+
+  .home__banner {
+    z-index: -3;
+    position: absolute;
+    inset: 0;
+
+    img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .home__hero-flying-image {
+    position: absolute;
+    top: 97px;
+    right: 0;
+
+    max-width: 987px;
+    height: 1237px;
+
+    z-index: -1;
+  }
+}

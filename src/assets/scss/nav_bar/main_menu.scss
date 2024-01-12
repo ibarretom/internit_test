@@ -1,0 +1,66 @@
+@import "../defaults/colors.scss";
+@import "../defaults/text.scss";
+
+$padding-nav-left: 64px;
+
+.main-menu {
+  align-self: flex-start;
+  position: sticky;
+  top: 0;
+
+  max-width: 330px;
+
+  padding: 48px 24px 0 $padding-nav-left;
+
+  .main-menu__logo {
+    margin-inline: 24px;
+  }
+
+  .main-menu__nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    list-style: none;
+    padding: 0;
+
+    margin-top: 88px;
+
+    li {
+      position: relative;
+
+      margin-inline-start: -$padding-nav-left;
+      padding-inline-start: $padding-nav-left;
+      padding-block: 16px;
+
+      &::after {
+        content: "";
+
+        position: absolute;
+        inset-inline: 0;
+        bottom: 0;
+
+        height: 2px;
+
+        background-color: $primary;
+        margin-top: 8px;
+
+        transform: scale(0);
+        transform-origin: left center;
+
+        transition: all ease 500ms;
+      }
+
+      &:not(.readonly):hover::after {
+        transform: scale(1);
+      }
+
+      a {
+        text-decoration: none;
+        color: $text;
+
+        transition: all ease 250ms;
+      }
+    }
+  }
+}
