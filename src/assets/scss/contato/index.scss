@@ -1,0 +1,73 @@
+@import "../defaults/text.scss";
+
+#contato {
+  position: relative;
+  min-height: 100svh;
+
+  display: flex;
+
+  main {
+    margin-inline-start: auto;
+
+    margin-block-start: 168px;
+    margin-right: 124px;
+
+    max-width: 562px;
+  }
+
+  .contato__bg-img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    inset: 0;
+
+    z-index: -1;
+  }
+
+  .contato__floating-image {
+    position: absolute;
+
+    top: -80px;
+    left: 0;
+  }
+
+  .contato__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .contato__form-footer {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+
+      padding-inline-start: 16px;
+
+      .contato-form-footer__policy {
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        gap: 8px;
+
+        border: 0;
+        padding: 0;
+        margin: 0;
+      }
+
+      button[type="submit"] {
+        padding: 0px 32px;
+
+        background-color: $primary;
+        border: none;
+
+        font-size: $body;
+
+        transition: all ease 200ms;
+      }
+
+      button[type="submit"]:hover {
+        filter: brightness(0.8);
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { FloatingInput } from "../../components/Form/FloatingInput";
 import { Bullet } from "../../components/Bullet";
 import { Divider } from "../../components/Divider";
 import { Button } from "../../components/Button";
@@ -36,7 +37,8 @@ import "../../assets/scss/home/index.scss";
 import "../../assets/scss/empreendimento/index.scss";
 import "../../assets/scss/plantas/index.scss";
 import "../../assets/scss/localizacao/index.scss";
-
+import "../../assets/scss/contato/index.scss";
+import { AppCheckBox } from "../../components/Form/AppCheckBox";
 export function Content() {
   return (
     <main>
@@ -239,29 +241,50 @@ export function Content() {
 
       <section id="contato">
         <main>
-          <h2 className="h2">Ficou interessado?</h2>
-          <p>
+          <h2 className="h2 text-strong white-text">Ficou interessado?</h2>
+          <p className="body text-strong white-text">
             Preencha o formulário abaixo e um de nossos consultores entrará em
             contato.
           </p>
 
-          <form>
-            <input type="text" placeholder="Como devemos te chamar?" />
-            <input type="text" placeholder="Seu telefone" />
-            <input type="text" placeholder="Seu melhor E-mail" />
+          <form className="contato__form mt-8">
+            <FloatingInput.Root>
+              <FloatingInput.Input id="nome" type="text" />
+              <FloatingInput.Label htmlFor="nome">
+                Como devemos te chamar?
+              </FloatingInput.Label>
+            </FloatingInput.Root>
 
-            <fieldset>
-              <input type="checkbox" />
-              <label>
-                Li e aceito os termos de uso dos dados conforme indicado na
-                Política de Privacidade.
-              </label>
-            </fieldset>
-            <button type="submit">Enviar</button>
+            <FloatingInput.Root>
+              <FloatingInput.Input id="telefone" type="text" />
+              <FloatingInput.Label htmlFor="telefone">
+                Seu telefone
+              </FloatingInput.Label>
+            </FloatingInput.Root>
+
+            <FloatingInput.Root>
+              <FloatingInput.Input id="email" type="text" />
+              <FloatingInput.Label htmlFor="email">
+                Seu melhor E-mail
+              </FloatingInput.Label>
+            </FloatingInput.Root>
+
+            <div className="contato__form-footer">
+              <fieldset className="contato-form-footer__policy">
+                <AppCheckBox id="policy" />
+
+                <label className="subtitle text-medium white-text">
+                  Li e aceito os termos de uso dos dados conforme indicado na
+                  Política de Privacidade.
+                </label>
+              </fieldset>
+
+              <button type="submit">Enviar</button>
+            </div>
           </form>
         </main>
-        <img src={Contato} />
-        <img src={DecorFull} />
+        <img src={Contato} className="contato__bg-img" />
+        <img src={DecorFull} className="contato__floating-image" />
       </section>
 
       <footer>

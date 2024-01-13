@@ -1,6 +1,6 @@
 @for $i from 0 through 16 {
   .mt-#{$i} {
-    margin: calc(#{$i} * 4px);
+    margin-top: calc(#{$i} * 4px);
   }
 
   .mb-#{$i} {
@@ -16,13 +16,11 @@
   }
 
   .mx-#{$i} {
-    margin-left: calc(#{$i} * 4px);
-    margin-right: calc(#{$i} * 4px);
+    margin-inline: calc(#{$i} * 4px);
   }
 
   .my-#{$i} {
-    margin-top: calc(#{$i} * 4px);
-    margin-bottom: calc(#{$i} * 4px);
+    margin-block: calc(#{$i} * 4px);
   }
 }
 

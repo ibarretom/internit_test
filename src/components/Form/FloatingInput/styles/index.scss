@@ -1,0 +1,55 @@
+@import "../../../../assets/scss/defaults/text.scss";
+@import "../../../../assets/scss/defaults/colors.scss";
+
+.input__wrapper {
+  position: relative;
+
+  border: 0;
+  padding: 0;
+  margin: 0;
+
+  font-family: $font-family;
+
+  input {
+    font-family: inherit;
+    width: 100%;
+    font-size: $body2;
+    padding: 16px 16px;
+
+    border-radius: 8px;
+    border: 0;
+
+    outline: none;
+
+    color: $text;
+  }
+
+  .input__floating-label {
+    font-family: inherit;
+    position: absolute;
+    top: 50%;
+    left: 16px;
+
+    font-size: $body2;
+    color: $text;
+    z-index: 1;
+
+    color: $text-opacity;
+
+    cursor: text;
+    transform: translateY(-50%);
+    transition: all 0.2s ease-in-out;
+  }
+
+  input:focus + .input__floating-label,
+  .input__floating-label--dirty {
+    top: 12px;
+    left: 16px;
+
+    font-size: $floating-label;
+  }
+
+  input:focus {
+    outline: 2px solid $primary;
+  }
+}
