@@ -175,7 +175,8 @@ export function Content() {
           </div>
           <div className="localizacao__content">
             <address className="body">
-              Rua Itaperuna, 100 Santa Rosa - Pé Pequeno Niterói - RJ, 24240-070
+              Rua Itaperuna, 100 Santa Rosa - Pé Pequeno <br />
+              Niterói - RJ, 24240-070
             </address>
 
             <nav className="localizacao__nav my-auto">
