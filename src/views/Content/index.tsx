@@ -1,12 +1,7 @@
 import { FloatingInput } from "../../components/Form/FloatingInput";
-import { Bullet } from "../../components/Bullet";
 import { Divider } from "../../components/Divider";
 import { Button } from "../../components/Button";
 
-import Conforto from "../../assets/images/home/conforto.png";
-import Lazer from "../../assets/images/home/lazer.png";
-import Memoria from "../../assets/images/home/memoria.png";
-import Decor from "../../assets/images/decor.svg";
 import DecorAlt from "../../assets/images/decor_alt.svg";
 import Slide1 from "../../assets/images/empreendimento/slide1.png";
 import Slide2 from "../../assets/images/empreendimento/slide1.png";
@@ -39,41 +34,11 @@ import "../../assets/scss/plantas/index.scss";
 import "../../assets/scss/localizacao/index.scss";
 import "../../assets/scss/contato/index.scss";
 import { AppCheckBox } from "../../components/Form/AppCheckBox";
+import { Home } from "../Home";
 export function Content() {
   return (
     <main>
-      <section id="home">
-        <main className="home__hero">
-          <div className="home__hero-text">
-            <h2 className="h1 white-text">
-              aposte no <strong className="text-strong">Conforto</strong> sem
-              perder a <strong className="strong">elegância</strong>
-            </h2>
-
-            <h2 className="h1 white-text">
-              <strong className="text-strong">lazer</strong> à um passo
-            </h2>
-
-            <h2 className="h1 white-text">
-              crie memórias com <strong className="text-strong">amigos</strong>{" "}
-              e <strong className="strong">família</strong>
-            </h2>
-          </div>
-
-          <a href="#cta" className="home__hero-cta">
-            marque uma visita
-            <Bullet />
-          </a>
-        </main>
-
-        <div className="home__banner">
-          <img src={Conforto} alt="Sala de estar" />
-          <img src={Lazer} alt="Sala de estar" />
-          <img src={Memoria} alt="Sala de estar" />
-        </div>
-
-        <img src={Decor} className="home__hero-flying-image" />
-      </section>
+      <Home />
 
       <section id="empreendimento">
         <main>

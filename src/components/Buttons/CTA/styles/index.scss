@@ -1,0 +1,39 @@
+@import "../../../../assets/scss/defaults/index.scss";
+
+.cta {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+
+  padding-block: 8px;
+  padding-inline: 32px 16px;
+
+  border-radius: 8px;
+
+  color: $text-opacity;
+  background-color: $secondary-opacity;
+
+  text-decoration: none;
+  font-size: $button;
+  text-transform: uppercase;
+
+  transition: filter 0.2s, transform ease 2s;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+
+  &:hover > .bullet {
+    animation: translate 0.2s ease-in-out forwards;
+  }
+
+  @keyframes translate {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(8px);
+    }
+  }
+}
