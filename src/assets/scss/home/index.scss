@@ -1,6 +1,9 @@
 @import "../defaults/text.scss";
 @import "../defaults/colors.scss";
 
+$slider-duration: 2s;
+$fade-duration: 1s;
+
 #home {
   position: relative;
   min-height: 100svh;
@@ -24,6 +27,28 @@
       .h1 {
         position: absolute;
         bottom: 0;
+        opacity: 0;
+      }
+
+      .h1[data-visible="true"] {
+        animation: slide-down $slider-duration ease forwards;
+      }
+
+      @keyframes slide-down {
+        0% {
+          opacity: 0;
+          bottom: 48px;
+        }
+
+        60% {
+          opacity: 1;
+          bottom: 0;
+        }
+
+        100% {
+          opacity: 1;
+          bottom: 0;
+        }
       }
     }
 
@@ -63,7 +88,7 @@
       width: 100%;
       opacity: 0;
 
-      transition: opacity ease-in 0.5s;
+      transition: opacity ease-in-out $fade-duration;
     }
 
     .home__banner-image[data-visible="true"] {

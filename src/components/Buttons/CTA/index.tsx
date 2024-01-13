@@ -4,9 +4,9 @@ import { Bullet } from "@components/Bullet";
 
 interface IProps extends React.HTMLProps<HTMLAnchorElement> {}
 
-export function CTA({ children }: IProps) {
+export function CTA({ children, className = "", ...rest }: IProps) {
   return (
-    <a href="#cta" className="cta">
+    <a className={`cta ${className}`} {...rest}>
       {children}
       <Bullet />
     </a>
