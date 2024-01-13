@@ -1,3 +1,5 @@
+import "@scss/plantas/index.scss";
+
 import { FullScreenSlider } from "@/components/Sliders/FullScreenSlider";
 import {
   AvailableBanners,

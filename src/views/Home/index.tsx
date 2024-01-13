@@ -1,3 +1,5 @@
+import "@scss/home/index.scss";
+
 import Decor from "@images/decor.svg";
 import { CTA } from "@components/Buttons/CTA";
 import { useEffect, useMemo, useState } from "react";

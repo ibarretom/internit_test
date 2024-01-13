@@ -1,4 +1,3 @@
-import { FloatingInput } from "../../components/Form/FloatingInput";
 import { Divider } from "../../components/Divider";
 
 import Slide1 from "../../assets/images/empreendimento/slide1.png";
@@ -13,9 +12,6 @@ import Carrousel6 from "../../assets/images/empreendimento/carrousel6.png";
 
 import Map from "../../assets/images/locallizacao/map.png";
 
-import DecorFull from "../../assets/images/decor_full.svg";
-import Contato from "../../assets/images/contato/bg.png";
-
 import Bank from "../../assets/images/icons/icons8-bank-50.svg";
 import Bike from "../../assets/images/icons/icons8-bicycle-50.svg";
 import Park from "../../assets/images/icons/icons8-park-50.svg";
@@ -23,14 +19,12 @@ import Pet from "../../assets/images/icons/icons8-play-with-pet-50.svg";
 import Shop from "../../assets/images/icons/icons8-shop-50.svg";
 import Train from "../../assets/images/icons/icons8-train-50.svg";
 
-import "../../assets/scss/home/index.scss";
 import "../../assets/scss/empreendimento/index.scss";
-import "../../assets/scss/plantas/index.scss";
 import "../../assets/scss/localizacao/index.scss";
-import "../../assets/scss/contato/index.scss";
-import { AppCheckBox } from "../../components/Form/AppCheckBox";
+
 import { Home } from "../Home";
 import { Plantas } from "../Plantas";
+import { Contato } from "../Contato";
 
 export function Content() {
   return (
@@ -180,53 +174,7 @@ export function Content() {
         </aside>
       </section>
 
-      <section id="contato">
-        <main>
-          <h2 className="h2 text-strong white-text">Ficou interessado?</h2>
-          <p className="body text-strong white-text">
-            Preencha o formulário abaixo e um de nossos consultores entrará em
-            contato.
-          </p>
-
-          <form className="contato__form mt-8">
-            <FloatingInput.Root>
-              <FloatingInput.Input id="nome" type="text" />
-              <FloatingInput.Label htmlFor="nome">
-                Como devemos te chamar?
-              </FloatingInput.Label>
-            </FloatingInput.Root>
-
-            <FloatingInput.Root>
-              <FloatingInput.Input id="telefone" type="text" />
-              <FloatingInput.Label htmlFor="telefone">
-                Seu telefone
-              </FloatingInput.Label>
-            </FloatingInput.Root>
-
-            <FloatingInput.Root>
-              <FloatingInput.Input id="email" type="text" />
-              <FloatingInput.Label htmlFor="email">
-                Seu melhor E-mail
-              </FloatingInput.Label>
-            </FloatingInput.Root>
-
-            <div className="contato__form-footer">
-              <fieldset className="contato-form-footer__policy">
-                <AppCheckBox id="policy" />
-
-                <label className="subtitle text-medium white-text">
-                  Li e aceito os termos de uso dos dados conforme indicado na
-                  Política de Privacidade.
-                </label>
-              </fieldset>
-
-              <button type="submit">Enviar</button>
-            </div>
-          </form>
-        </main>
-        <img src={Contato} className="contato__bg-img" />
-        <img src={DecorFull} className="contato__floating-image" />
-      </section>
+      <Contato />
 
       <footer>
         <p>Desenvolvido por</p>
