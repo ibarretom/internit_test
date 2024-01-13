@@ -1,3 +1,4 @@
+@import "../../scss/defaults/colors.scss";
 #localizacao {
   position: relative;
 
@@ -6,7 +7,7 @@
   min-height: 100svh;
 
   main {
-    flex-grow: 1;
+    flex-grow: 2;
     max-width: 630px;
 
     display: grid;
@@ -20,7 +21,6 @@
       justify-content: space-between;
 
       padding-block-start: 32px;
-      padding-inline: 144px;
 
       .localizacao__nav {
         ul {
@@ -47,6 +47,10 @@
             &:not(:hover) {
               .localizacao__nav-icon {
                 background-image: url("./../../images/icons/losangulo_hover.svg");
+              }
+
+              .localizacao__nav-text {
+                color: $gray;
               }
             }
 
