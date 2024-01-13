@@ -12,7 +12,7 @@ export function Home() {
   const [currentBanner, setCurrentBanner] = useState<TBanners>("Conforto");
 
   const banners = useMemo(
-    () => new AvailableBanners(currentBanner),
+    () => new AvailableBanners("Home", currentBanner),
     [currentBanner]
   );
 

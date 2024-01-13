@@ -5,7 +5,17 @@ import { ConfortoText } from "../Text/ConfortoText";
 import { LazerText } from "../Text/LazerText";
 import { MemoriasText } from "../Text/MemoriasText copy";
 import { IFullScreenSliderTextProps } from "../Text";
-export type TBanners = "Conforto" | "Lazer" | "Memoria";
+
+import Quartos3 from "@images/plantas/3Quartos.png";
+import Quartos2 from "@images/plantas/2Quartos.png";
+import Cobertura from "@images/plantas/Cobertura.png";
+
+export type TBannersHome = "Conforto" | "Lazer" | "Memoria";
+export type TBannersPlanta = "3 Quartos" | "2 Quartos" | "Cobertura";
+
+export type TBanners = TBannersHome | TBannersPlanta;
+
+export type TSections = "Home" | "Planta";
 
 export type TBannerElement = {
   id: TBanners;
@@ -13,29 +23,46 @@ export type TBannerElement = {
   text?: (object: IFullScreenSliderTextProps) => JSX.Element;
 };
 
+type TApplicationBanners = {
+  [key in TSections]: TBannerElement[];
+};
+
 export class AvailableBanners {
-  private banners: TBannerElement[] = [
-    { id: "Conforto", img: Conforto, text: ConfortoText },
-    { id: "Lazer", img: Lazer, text: LazerText },
-    { id: "Memoria", img: Memoria, text: MemoriasText },
-  ];
+  private banners: TApplicationBanners = {
+    Home: [
+      { id: "Conforto", img: Conforto, text: ConfortoText },
+      { id: "Lazer", img: Lazer, text: LazerText },
+      { id: "Memoria", img: Memoria, text: MemoriasText },
+    ],
+    Planta: [
+      { id: "3 Quartos", img: Quartos3 },
+      { id: "2 Quartos", img: Quartos2 },
+      { id: "Cobertura", img: Cobertura },
+    ],
+  };
 
-  public readonly available: TBannerElement[] = [...this.banners];
   private currentIndex: number = 0;
+  private typeBanner: TSections;
 
-  constructor(currentBanner: TBanners) {
-    this.currentIndex = this.banners.findIndex(
-      (banner) => banner.id == currentBanner
+  public readonly available: TBannerElement[];
+
+  constructor(typeBanner: TSections, startBanner: TBanners) {
+    this.typeBanner = typeBanner;
+
+    this.available = [...this.banners[this.typeBanner]];
+
+    this.currentIndex = this.available.findIndex(
+      (banner) => banner.id === startBanner
     );
   }
 
   public next(): TBannerElement {
-    this.currentIndex = (this.currentIndex + 1) % this.banners.length;
+    this.currentIndex = (this.currentIndex + 1) % this.available.length;
 
     return this.current();
   }
 
   public current(): TBannerElement {
-    return this.banners[this.currentIndex];
+    return this.available[this.currentIndex];
   }
 }

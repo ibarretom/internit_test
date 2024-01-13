@@ -1,8 +1,6 @@
 import { FloatingInput } from "../../components/Form/FloatingInput";
 import { Divider } from "../../components/Divider";
-import { Button } from "../../components/Button";
 
-import DecorAlt from "../../assets/images/decor_alt.svg";
 import Slide1 from "../../assets/images/empreendimento/slide1.png";
 import Slide2 from "../../assets/images/empreendimento/slide1.png";
 
@@ -12,9 +10,6 @@ import Carrousel3 from "../../assets/images/empreendimento/carrousel3.png";
 import Carrousel4 from "../../assets/images/empreendimento/carrousel4.png";
 import Carrousel5 from "../../assets/images/empreendimento/carrousel5.png";
 import Carrousel6 from "../../assets/images/empreendimento/carrousel6.png";
-
-import Planta1 from "../../assets/images/plantas/planta1.png";
-import Planta2 from "../../assets/images/plantas/planta2.png";
 
 import Map from "../../assets/images/locallizacao/map.png";
 
@@ -35,6 +30,8 @@ import "../../assets/scss/localizacao/index.scss";
 import "../../assets/scss/contato/index.scss";
 import { AppCheckBox } from "../../components/Form/AppCheckBox";
 import { Home } from "../Home";
+import { Plantas } from "../Plantas";
+
 export function Content() {
   return (
     <main>
@@ -104,29 +101,7 @@ export function Content() {
         </aside>
       </section>
 
-      <section id="plantas">
-        <main>
-          <h3 className="h3 text-strong">Plantas</h3>
-
-          <Divider.Root>
-            <Divider.Line />
-            <Divider.Bullet className="right" />
-          </Divider.Root>
-
-          <div className="plantas__actions">
-            <Button className="active">3 Quartos</Button>
-            <Button>2 Quartos</Button>
-            <Button>Cobertura</Button>
-          </div>
-        </main>
-
-        <aside className="plantas__pictures">
-          <img src={Planta1} />
-          <img src={Planta2} />
-        </aside>
-
-        <img src={DecorAlt} className="plantas__flying-imag" />
-      </section>
+      <Plantas />
 
       <section id="localizacao">
         <main>

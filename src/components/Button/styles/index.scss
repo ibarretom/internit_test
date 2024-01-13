@@ -22,7 +22,7 @@
     filter: brightness(0.8);
   }
 
-  &.active {
+  &.button__active {
     background-color: $primary;
   }
 }
