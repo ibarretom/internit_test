@@ -1,4 +1,6 @@
 import { Bullet } from "../../components/Bullet";
+import { Divider } from "../../components/Divider";
+import { Button } from "../../components/Button";
 
 import Conforto from "../../assets/images/home/conforto.png";
 import Lazer from "../../assets/images/home/lazer.png";
@@ -23,8 +25,17 @@ import Map from "../../assets/images/locallizacao/map.png";
 import DecorFull from "../../assets/images/decor_full.svg";
 import Contato from "../../assets/images/contato/bg.png";
 
+import Bank from "../../assets/images/icons/icons8-bank-50.svg";
+import Bike from "../../assets/images/icons/icons8-bicycle-50.svg";
+import Park from "../../assets/images/icons/icons8-park-50.svg";
+import Pet from "../../assets/images/icons/icons8-play-with-pet-50.svg";
+import Shop from "../../assets/images/icons/icons8-shop-50.svg";
+import Train from "../../assets/images/icons/icons8-train-50.svg";
+
 import "../../assets/scss/home/index.scss";
 import "../../assets/scss/empreendimento/index.scss";
+import "../../assets/scss/plantas/index.scss";
+import "../../assets/scss/localizacao/index.scss";
 
 export function Content() {
   return (
@@ -32,19 +43,19 @@ export function Content() {
       <section id="home">
         <main className="home__hero">
           <div className="home__hero-text">
-            <h1 className="h1 white-text">
+            <h2 className="h1 white-text">
               aposte no <strong className="text-strong">Conforto</strong> sem
               perder a <strong className="strong">elegância</strong>
-            </h1>
+            </h2>
 
-            <h1 className="h1 white-text">
+            <h2 className="h1 white-text">
               <strong className="text-strong">lazer</strong> à um passo
-            </h1>
+            </h2>
 
-            <h1 className="h1 white-text">
+            <h2 className="h1 white-text">
               crie memórias com <strong className="text-strong">amigos</strong>{" "}
               e <strong className="strong">família</strong>
-            </h1>
+            </h2>
           </div>
 
           <a href="#cta" className="home__hero-cta">
@@ -64,14 +75,14 @@ export function Content() {
 
       <section id="empreendimento">
         <main>
-          <h3 className="h3">O empreendimento</h3>
+          <h3 className="h3 text-strong mt-4">O empreendimento</h3>
 
-          <div>
-            <hr></hr>
-            <Bullet />
-          </div>
+          <Divider.Root>
+            <Divider.Line />
+            <Divider.Bullet className="right" />
+          </Divider.Root>
 
-          <article>
+          <article className="body">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra
             viverra nisl, id nullam et morbi. Ornare ut est faucibus nec ut
             curabitur sagittis. Dui risus amet, sit morbi aliquet. In
@@ -79,13 +90,12 @@ export function Content() {
             Bibendum nulla cursus urna habitant integer in orci, amet. Elementum
             habitasse sem amet sit mi est. Aenean dui, odio malesuada
             ullamcorper est sed. Aliquet lacus, platea nibh ultricies turpis
-            diam leo duis. Amet massa, sit rhoncus leo laoreet habitant. Aliquam
-            nullam risus duis curabitur.
           </article>
-          <div>
-            <hr></hr>
-            <Bullet />
-          </div>
+
+          <Divider.Root className="translate-80">
+            <Divider.Line />
+            <Divider.Bullet className="left" />
+          </Divider.Root>
 
           <nav className="empreendimento__carrousel">
             <ul className="empreendimento__carrousel-banners">
@@ -109,7 +119,15 @@ export function Content() {
               </li>
             </ul>
 
-            <input type="range" />
+            <div className="empreendimento__carrousel-slider__wrapper">
+              <input
+                type="range"
+                className="empreendimento__carrousel-slider"
+              />
+              <label className="empreendimento__carrousel-slider__instructions h3 mx-auto">
+                (Clique e arraste)
+              </label>
+            </div>
           </nav>
         </main>
 
@@ -121,63 +139,97 @@ export function Content() {
 
       <section id="plantas">
         <main>
-          <h3 className="h3">Plantas</h3>
+          <h3 className="h3 text-strong">Plantas</h3>
 
-          <div>
-            <hr></hr>
-            <Bullet />
-          </div>
+          <Divider.Root>
+            <Divider.Line />
+            <Divider.Bullet className="right" />
+          </Divider.Root>
 
-          <div>
-            <button>3 Quartos</button>
-            <button>2 Quartos</button>
-            <button>Cobertura</button>
+          <div className="plantas__actions">
+            <Button className="active">3 Quartos</Button>
+            <Button>2 Quartos</Button>
+            <Button>Cobertura</Button>
           </div>
         </main>
 
-        <aside className="pictures">
+        <aside className="plantas__pictures">
           <img src={Planta1} />
           <img src={Planta2} />
         </aside>
 
-        <img src={DecorAlt} />
+        <img src={DecorAlt} className="plantas__flying-imag" />
       </section>
 
       <section id="localizacao">
         <main>
-          <h3 className="h3">Localização</h3>
+          <div className="localizacao__header">
+            <h3 className="h3 text-strong">Localização</h3>
 
-          <div>
-            <hr></hr>
-            <Bullet />
+            <Divider.Root>
+              <Divider.Line />
+              <Divider.Bullet className="right" />
+            </Divider.Root>
           </div>
+          <div className="localizacao__content">
+            <address className="body">
+              Rua Itaperuna, 100 Santa Rosa - Pé Pequeno Niterói - RJ, 24240-070
+            </address>
 
-          <address>
-            Rua Itaperuna, 100 Santa Rosa - Pé Pequeno Niterói - RJ, 24240-070
-          </address>
+            <nav className="localizacao__nav my-auto">
+              <ul>
+                <li className="localizacao__nav-content-wrapper">
+                  <span className="localizacao__nav-icon">
+                    <img src={Shop} />
+                  </span>
 
-          <nav>
-            <ul>
-              <li>
-                <span>icon</span>mercado
-              </li>
-              <li>
-                <span>icon</span> PETSHOP
-              </li>
-              <li>
-                <span>icon</span> BICICLETÁRIO
-              </li>
-              <li>
-                <span>icon</span> parque
-              </li>
-              <li>
-                <span>icon</span> banco
-              </li>
-              <li>
-                <span>icon</span> estação de metrô
-              </li>
-            </ul>
-          </nav>
+                  <span className="body2 localizacao__nav-text text-uppercase">
+                    mercado
+                  </span>
+                </li>
+                <li className="localizacao__nav-content-wrapper">
+                  <span className="localizacao__nav-icon">
+                    <img src={Pet} />
+                  </span>
+                  <span className="body2 localizacao__nav-text text-uppercase">
+                    PETSHOP
+                  </span>
+                </li>
+                <li className="localizacao__nav-content-wrapper">
+                  <span className="localizacao__nav-icon">
+                    <img src={Bike} />
+                  </span>
+                  <span className="body2 localizacao__nav-text text-uppercase">
+                    BICICLETÁRIO
+                  </span>
+                </li>
+                <li className="localizacao__nav-content-wrapper">
+                  <span className="localizacao__nav-icon">
+                    <img src={Park} />
+                  </span>
+                  <span className="body2 localizacao__nav-text text-uppercase">
+                    parque
+                  </span>
+                </li>
+                <li className="localizacao__nav-content-wrapper">
+                  <span className="localizacao__nav-icon">
+                    <img src={Bank} />
+                  </span>
+                  <span className="body2 localizacao__nav-text text-uppercase">
+                    banco
+                  </span>
+                </li>
+                <li className="localizacao__nav-content-wrapper">
+                  <span className="localizacao__nav-icon">
+                    <img src={Train} />
+                  </span>
+                  <span className="localizacao__nav-text body2 text-uppercase">
+                    estação de metrô
+                  </span>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </main>
 
         <aside>

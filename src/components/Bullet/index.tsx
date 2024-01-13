@@ -1,4 +1,6 @@
-export function Bullet() {
+interface IProps extends React.HTMLAttributes<SVGElement> {}
+
+export function Bullet({ className = "", ...rest }: IProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,6 +8,8 @@ export function Bullet() {
       height="24"
       viewBox="0 0 46 24"
       fill="none"
+      {...rest}
+      className={`bullet ${className}`}
     >
       <g clip-path="url(#clip0_164_132)">
         <path

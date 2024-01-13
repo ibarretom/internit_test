@@ -1,0 +1,30 @@
+@import "../../../assets/scss/defaults/colors";
+
+.divider {
+  position: relative;
+
+  .divider__line.divider__line {
+    border: 0;
+    height: 2px;
+    background-color: $primary;
+  }
+
+  .bullet {
+    position: absolute;
+
+    top: 0;
+    transform: translateY(-46%);
+  }
+
+  .left {
+    left: 0;
+  }
+
+  .right {
+    right: 0;
+  }
+
+  &.translate-80 {
+    transform: translateX(80%);
+  }
+}

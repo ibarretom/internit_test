@@ -1,0 +1,45 @@
+#plantas {
+  position: relative;
+
+  display: flex;
+  flex-direction: row-reverse;
+
+  min-height: 100svh;
+
+  main {
+    flex-grow: 1;
+    max-width: 437px;
+
+    padding: 0 54px;
+
+    .plantas__actions {
+      display: flex;
+      flex-direction: column;
+
+      gap: 32px;
+
+      margin-top: 36px;
+    }
+  }
+
+  .plantas__pictures {
+    position: relative;
+
+    flex-grow: 1;
+
+    img {
+      position: absolute;
+
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .plantas__flying-imag {
+    position: absolute;
+
+    top: 400px;
+
+    z-index: 1;
+  }
+}

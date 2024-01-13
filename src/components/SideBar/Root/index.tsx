@@ -1,4 +1,4 @@
-import "../../../assets/scss/nav_bar/main_menu.scss";
+import "../styles/main_menu.scss";
 
 interface IProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode;

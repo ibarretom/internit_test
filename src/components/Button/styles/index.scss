@@ -1,0 +1,28 @@
+@import "../../../assets/scss/defaults/text.scss";
+@import "../../../assets/scss/defaults/colors.scss";
+
+.button {
+  display: block;
+
+  padding: 16px 32px;
+
+  font-size: $body;
+
+  background-color: $secondary;
+  color: $text;
+
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: background-color ease 200ms, color ease 200ms, filter ease 200ms;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+
+  &.active {
+    background-color: $primary;
+  }
+}
