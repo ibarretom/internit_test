@@ -1,3 +1,5 @@
+import "../styles/index.scss";
+
 interface IProps extends React.HTMLProps<HTMLImageElement> {
   banner: { id: string; img: string };
   isVisible: boolean;
@@ -11,7 +13,7 @@ export function Image({
 }: IProps) {
   return (
     <img
-      className={`home__banner-image ${className}`}
+      className={`full-screen-slider__image ${className}`}
       src={banner.img}
       alt="Sala de estar"
       data-visible={isVisible}

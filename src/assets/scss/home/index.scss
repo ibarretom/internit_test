@@ -81,19 +81,6 @@ $fade-duration: 1s;
     z-index: -3;
     position: absolute;
     inset: 0;
-
-    img {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      opacity: 0;
-
-      transition: opacity ease-in-out $fade-duration;
-    }
-
-    .home__banner-image[data-visible="true"] {
-      opacity: 1;
-    }
   }
 
   .home__hero-flying-image {

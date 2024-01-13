@@ -26,21 +26,6 @@
     position: relative;
 
     flex-grow: 1;
-
-    img {
-      position: absolute;
-
-      height: 100%;
-      width: 100%;
-
-      opacity: 0;
-
-      transition: opacity 500ms ease;
-    }
-
-    img[data-visible="true"] {
-      opacity: 1;
-    }
   }
 
   .plantas__flying-imag {

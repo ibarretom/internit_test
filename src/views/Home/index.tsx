@@ -43,10 +43,11 @@ export function Home() {
         <CTA href="#contato">marque uma visita</CTA>
       </main>
 
-      <FullScreenSlider.Image.Root>
+      <FullScreenSlider.Image.Root className="home__banner">
         {banners.available.map((banner: TBannerElement) => {
           return (
             <FullScreenSlider.Image.Element
+              className="home__banner-image"
               banner={banner}
               isVisible={currentBanner === banner.id}
               key={banner.id}

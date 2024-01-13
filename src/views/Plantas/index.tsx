@@ -1,3 +1,4 @@
+import { FullScreenSlider } from "@/components/Sliders/FullScreenSlider";
 import {
   AvailableBanners,
   TBanners,
@@ -39,17 +40,17 @@ export function Plantas() {
         </div>
       </main>
 
-      <aside className="plantas__pictures">
+      <FullScreenSlider.Image.Root className="plantas__pictures">
         {plantas.available.map((planta) => {
           return (
-            <img
-              src={planta.img}
-              data-visible={currentPlanta === planta.id}
+            <FullScreenSlider.Image.Element
+              banner={planta}
+              isVisible={currentPlanta === planta.id}
               key={planta.id}
             />
           );
         })}
-      </aside>
+      </FullScreenSlider.Image.Root>
 
       <img src={DecorAlt} className="plantas__flying-imag" />
     </section>
