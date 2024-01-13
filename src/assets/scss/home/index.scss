@@ -61,6 +61,13 @@
       position: absolute;
       height: 100%;
       width: 100%;
+      opacity: 0;
+
+      transition: opacity ease-in 0.5s;
+    }
+
+    .home__banner-image[data-visible="true"] {
+      opacity: 1;
     }
   }
 
