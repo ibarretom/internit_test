@@ -1,6 +1,6 @@
 import "@scss/localizacao/index.scss";
 
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Divider } from "@/components/Divider";
 import { ButtonList } from "@/components/ButtonList";
 import { MapView } from "@/components/MapView";
@@ -12,12 +12,14 @@ import Pet from "@images/icons/icons8-play-with-pet-50.svg";
 import Shop from "@images/icons/icons8-shop-50.svg";
 import Train from "@images/icons/icons8-train-50.svg";
 import {
+  TMapElementButton,
   TMapElements,
   setPosition,
   useMapRefs,
 } from "@/components/MapView/Hooks";
 
 export function Localizacao() {
+  const [mapElements, setMapElements] = useState<TMapElementButton>(null);
   const { mapRefs, elementsRefs } = useMapRefs();
 
   const putElementsInPosition = useCallback(() => {
@@ -64,6 +66,8 @@ export function Localizacao() {
             <ButtonList.Root>
               <ButtonList.ListItem>
                 <ButtonList.Button
+                  onClick={() => setMapElements("market")}
+                  isActive={mapElements === "market" || mapElements === null}
                   Icon={() => (
                     <ButtonList.ButtonIcon Icon={() => <img src={Shop} />} />
                   )}
@@ -71,8 +75,11 @@ export function Localizacao() {
                   mercado
                 </ButtonList.Button>
               </ButtonList.ListItem>
+
               <ButtonList.ListItem>
                 <ButtonList.Button
+                  onClick={() => setMapElements("pet")}
+                  isActive={mapElements === "pet" || mapElements === null}
                   Icon={() => (
                     <ButtonList.ButtonIcon Icon={() => <img src={Pet} />} />
                   )}
@@ -80,8 +87,10 @@ export function Localizacao() {
                   petshop
                 </ButtonList.Button>
               </ButtonList.ListItem>
+
               <ButtonList.ListItem>
                 <ButtonList.Button
+                  isActive={mapElements === null}
                   Icon={() => (
                     <ButtonList.ButtonIcon Icon={() => <img src={Bike} />} />
                   )}
@@ -89,8 +98,10 @@ export function Localizacao() {
                   bicicletário
                 </ButtonList.Button>
               </ButtonList.ListItem>
+
               <ButtonList.ListItem>
                 <ButtonList.Button
+                  isActive={mapElements === null}
                   Icon={() => (
                     <ButtonList.ButtonIcon Icon={() => <img src={Park} />} />
                   )}
@@ -98,8 +109,10 @@ export function Localizacao() {
                   parque
                 </ButtonList.Button>
               </ButtonList.ListItem>
+
               <ButtonList.ListItem>
                 <ButtonList.Button
+                  isActive={mapElements === null}
                   Icon={() => (
                     <ButtonList.ButtonIcon Icon={() => <img src={Bank} />} />
                   )}
@@ -107,8 +120,10 @@ export function Localizacao() {
                   banco
                 </ButtonList.Button>
               </ButtonList.ListItem>
+
               <ButtonList.ListItem>
                 <ButtonList.Button
+                  isActive={mapElements === null}
                   Icon={() => (
                     <ButtonList.ButtonIcon Icon={() => <img src={Train} />} />
                   )}
@@ -132,19 +147,31 @@ export function Localizacao() {
 
         <ButtonList.ButtonIcon
           ref={elementsRefs.market1}
-          className="localizacao__right-floating_button market"
+          className={`localizacao__right-floating_button ${
+            mapElements === "market"
+              ? "localizacao__right-floating_button--active"
+              : ""
+          }`}
           Icon={() => <img src={Shop} />}
         />
 
         <ButtonList.ButtonIcon
           ref={elementsRefs.market2}
-          className="localizacao__right-floating_button market"
+          className={`localizacao__right-floating_button ${
+            mapElements === "market"
+              ? "localizacao__right-floating_button--active"
+              : ""
+          }`}
           Icon={() => <img src={Shop} />}
         />
 
         <ButtonList.ButtonIcon
           ref={elementsRefs.pet}
-          className="localizacao__right-floating_button pet"
+          className={`localizacao__right-floating_button ${
+            mapElements === "pet"
+              ? "localizacao__right-floating_button--active"
+              : ""
+          }`}
           Icon={() => <img src={Pet} />}
         />
       </aside>

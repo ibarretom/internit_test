@@ -30,10 +30,19 @@
         display: inline-block;
       }
 
-      &:not(:hover),
-      &.button-list__button--active {
+      &:not(:hover) {
         .button-list__button-icon {
           background-image: url("../../../assets/images/icons/losangulo_hover.svg");
+        }
+
+        .button-list__button-text {
+          color: $gray;
+        }
+      }
+
+      &.button-list__button--active {
+        .button-list__button-icon {
+          background-image: url("../../../assets/images/icons/losangulo.svg");
         }
 
         .button-list__button-text {

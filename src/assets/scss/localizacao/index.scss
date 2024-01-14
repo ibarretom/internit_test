@@ -37,6 +37,13 @@
       bottom: 0;
       right: 0;
       z-index: 1;
+
+      transform: scale(0);
+
+      transition: all ease 200ms;
+      &.localizacao__right-floating_button--active {
+        transform: scale(1);
+      }
     }
   }
 }

@@ -1,6 +1,7 @@
 import { useRef } from "react";
 
 export type TMapElements = "market1" | "market2" | "pet";
+export type TMapElementButton = "market" | "pet" | null;
 
 export type TMapRefs = {
   [key in TMapElements]: React.LegacyRef<SVGRectElement> | undefined;
