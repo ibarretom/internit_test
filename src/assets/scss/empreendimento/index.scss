@@ -9,78 +9,12 @@
     max-width: 630px;
     flex-grow: 1;
 
+    overflow: hidden;
+
     article {
       margin-top: 12px;
       max-width: 424px;
       margin-inline: auto;
-    }
-
-    .empreendimento__carrousel {
-      margin-top: 24px;
-
-      .empreendimento__carrousel-banners {
-        display: flex;
-        gap: 24px;
-
-        overflow: hidden;
-
-        list-style: none;
-        margin: 0;
-        padding: 0;
-
-        li {
-          img {
-            max-width: 194px;
-            max-height: 341px;
-          }
-        }
-      }
-
-      .empreendimento__carrousel-slider__wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-
-        .empreendimento__carrousel-slider {
-          display: block;
-
-          -webkit-appearance: none;
-          appearance: none;
-
-          margin-inline: auto;
-          margin-top: 24px;
-
-          width: 495px;
-          height: 2px;
-
-          background: $secondary;
-
-          outline: none;
-          opacity: 0.7;
-
-          -webkit-transition: 0.2s;
-
-          transition: opacity 0.2s;
-        }
-
-        .empreendimento__carrousel-slider::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          appearance: none;
-
-          width: 20px;
-          height: 20px;
-
-          background: $primary;
-          border-radius: 50%;
-
-          cursor: pointer;
-        }
-
-        .empreendimento__carrousel-slider__instructions {
-          display: inline-block;
-          color: $gray;
-        }
-      }
     }
   }
 

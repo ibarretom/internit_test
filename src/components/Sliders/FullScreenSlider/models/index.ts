@@ -10,12 +10,16 @@ import Quartos3 from "@images/plantas/3Quartos.png";
 import Quartos2 from "@images/plantas/2Quartos.png";
 import Cobertura from "@images/plantas/Cobertura.png";
 
+import Slide1 from "@images/empreendimento/slide1.png";
+import Slide2 from "@images/empreendimento/slide2.png";
+
 export type TBannersHome = "Conforto" | "Lazer" | "Memoria";
 export type TBannersPlanta = "3 Quartos" | "2 Quartos" | "Cobertura";
+export type TBannersEmpreendimento = "Slide 1" | "Slide 2";
 
-export type TBanners = TBannersHome | TBannersPlanta;
+export type TBanners = TBannersHome | TBannersPlanta | TBannersEmpreendimento;
 
-export type TSections = "Home" | "Planta";
+export type TSections = "Home" | "Planta" | "Empreendimento";
 
 export type TBannerElement = {
   id: TBanners;
@@ -39,6 +43,10 @@ export class AvailableBanners {
       { id: "2 Quartos", img: Quartos2 },
       { id: "Cobertura", img: Cobertura },
     ],
+    Empreendimento: [
+      { id: "Slide 1", img: Slide1 },
+      { id: "Slide 2", img: Slide2 },
+    ],
   };
 
   private currentIndex: number = 0;
@@ -58,6 +66,12 @@ export class AvailableBanners {
 
   public next(): TBannerElement {
     this.currentIndex = (this.currentIndex + 1) % this.available.length;
+
+    return this.current();
+  }
+
+  public setById(id: TBanners): TBannerElement {
+    this.currentIndex = this.available.findIndex((banner) => banner.id === id);
 
     return this.current();
   }

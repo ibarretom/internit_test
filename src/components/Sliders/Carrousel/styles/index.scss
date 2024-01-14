@@ -1,0 +1,86 @@
+@import "../../../../assets/scss/defaults/colors.scss";
+
+.carousel__nav {
+  .carrousel__banners {
+    display: flex;
+    gap: var(--elements-gap);
+
+    overflow: hidden;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .carrousel__banner {
+      position: relative;
+
+      left: var(--position);
+
+      cursor: pointer;
+
+      transition: brightness ease 0.3s;
+
+      &:hover {
+        filter: brightness(0.8);
+      }
+
+      .carrousel__image {
+        max-width: var(--image-width);
+        max-height: 341px;
+      }
+    }
+  }
+
+  .carrousel__slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .carrousel__slider {
+      display: block;
+
+      -webkit-appearance: none;
+      appearance: none;
+
+      margin-inline: auto;
+      margin-top: 24px;
+
+      width: 495px;
+      height: 2px;
+
+      background: $secondary;
+
+      outline: none;
+      opacity: 0.7;
+
+      -webkit-transition: 0.2s;
+
+      transition: opacity 0.2s;
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+
+        width: 20px;
+        height: 20px;
+
+        background: $primary;
+        border-radius: 50%;
+
+        cursor: pointer;
+      }
+
+      &:focus-visible {
+        &::-webkit-slider-thumb {
+          outline: 2px solid $primary;
+          outline-offset: 2px;
+        }
+      }
+    }
+
+    .carrousel__slider-instructions {
+      display: inline-block;
+      color: $gray;
+    }
+  }
+}
