@@ -6,9 +6,22 @@
   margin: 0;
   padding: 0;
 
+  @media (width < $md) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 16px;
+
+    margin-top: 32px;
+  }
+
   .button-list__content-wrapper {
     & + .button-list__content-wrapper {
       margin-block-start: 32px;
+
+      @media (width < $md) {
+        margin-block-start: 0;
+      }
     }
 
     transition: all ease 200ms;
@@ -18,6 +31,9 @@
       align-items: center;
       gap: 24px;
 
+      @media (width <= $sm) {
+        gap: 8px;
+      }
       width: 100%;
 
       padding: 0;
@@ -29,6 +45,10 @@
 
       span {
         display: inline-block;
+      }
+
+      .button-list__button-text {
+        text-align: start;
       }
 
       @media (width > $sm) {

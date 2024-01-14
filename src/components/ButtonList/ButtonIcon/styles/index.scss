@@ -1,3 +1,5 @@
+@import "../../../../assets/scss/defaults/breakpoints.scss";
+
 .button-list__button-icon {
   display: inline-block;
   max-width: 96px;
@@ -13,5 +15,14 @@
   img {
     min-width: 50px;
     min-height: 50px;
+  }
+
+  @media (width <= $sm) {
+    padding-inline: 16px;
+    padding-inline: 16px;
+    img {
+      min-width: 36px;
+      min-height: 36px;
+    }
   }
 }
