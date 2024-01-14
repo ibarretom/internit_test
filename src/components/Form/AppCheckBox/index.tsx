@@ -5,10 +5,16 @@ interface IProps extends React.HTMLProps<HTMLInputElement> {
 }
 
 export const AppCheckBox = forwardRef<HTMLInputElement, IProps>(
-  ({ id, ...rest }: IProps) => {
+  ({ id, ...rest }: IProps, ref) => {
     return (
       <label htmlFor={id} className="checkbox__wrapper">
-        <input type="checkbox" className="app-checkbox" id={id} {...rest} />
+        <input
+          id={id}
+          ref={ref}
+          type="checkbox"
+          className="app-checkbox"
+          {...rest}
+        />
         <span className="checkbox__checkmark"></span>
       </label>
     );

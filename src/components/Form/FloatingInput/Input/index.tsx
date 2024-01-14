@@ -1,28 +1,43 @@
 import { forwardRef } from "react";
 
+type TMasks = "phone" | "email" | "name";
+
 interface IProps extends React.HTMLProps<HTMLInputElement> {
   id: string;
   mask?: TMasks;
 }
 
 export const Input = forwardRef<HTMLInputElement, IProps>(
-  ({ id, mask, className = "", value = "", ...rest }, ref) => {
-    const valueOrMasked = mask && masks[mask] ? masks[mask](value) : value;
-    const emptyOrDirty = valueOrMasked ? "input__floating-label--dirty" : "";
+  ({ id, mask, className = "", value = "", onChange, ...rest }, ref) => {
+    const emptyOrDirty = value ? "input__floating-label--dirty" : "";
+
+    function HandleValueChange(e: React.ChangeEvent<HTMLInputElement>) {
+      const { value } = e.target;
+
+      if (!mask || !masks[mask]) {
+        onChange && onChange(e);
+        return;
+      }
+
+      const maskedValue = masks[mask](value);
+      e.target.value = maskedValue;
+
+      onChange && onChange(e);
+      return;
+    }
 
     return (
       <input
         id={id}
         ref={ref}
+        onChange={HandleValueChange}
         className={`${emptyOrDirty} ${className}`}
-        value={valueOrMasked}
+        value={value}
         {...rest}
       />
     );
   }
 );
-
-type TMasks = "phone" | "email";
 
 const masks: {
   [k in TMasks]: (value: string | number | readonly string[]) => string;
@@ -48,6 +63,7 @@ const masks: {
     if (match![3]) formatted += ` ${match![3]}`;
     if (match![4]) formatted += `-${match![4]}`;
 
+    formatted = formatted.replace(/[^0-9(). -]/g, "");
     return formatted.trim();
   },
   email: function formatEmail(value) {
@@ -65,5 +81,8 @@ const masks: {
     if (!domainAndDot) return lowercasedValue;
 
     return [username, domainAndDot.replace(/[^a-zA-Z.]/g, "")].join("@");
+  },
+  name: function onlyLetters(value) {
+    return value.toString().replace(/[0-9]/g, "");
   },
 };
