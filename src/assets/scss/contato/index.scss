@@ -30,6 +30,8 @@
 
     top: -80px;
     left: 0;
+
+    z-index: -1;
   }
 
   .contato__form {
@@ -67,6 +69,12 @@
 
       button[type="submit"]:hover {
         filter: brightness(0.8);
+      }
+
+      button:focus-visible {
+        outline: 2px solid $primary;
+        outline-offset: 2px;
+        border-radius: 2px;
       }
     }
   }

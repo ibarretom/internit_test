@@ -1,12 +1,24 @@
 import "@scss/contato/index.scss";
 
+import { useForm, Controller } from "react-hook-form";
+
 import { AppCheckBox } from "@components/Form/AppCheckBox";
 import { FloatingInput } from "@components/Form/FloatingInput";
 
 import ContatoImg from "@images/contato/bg.png";
 import DecorFull from "@images/decor_full.svg";
 
+interface IContatoForm {
+  name: string;
+  phone: string;
+  email: string;
+  policy: string;
+}
+
 export function Contato() {
+  const { control, handleSubmit } = useForm<IContatoForm>();
+  const onSubmit = (data: IContatoForm) => console.log(data);
+
   return (
     <section id="contato">
       <main>
@@ -16,31 +28,63 @@ export function Contato() {
           contato.
         </p>
 
-        <form className="contato__form mt-8">
-          <FloatingInput.Root>
-            <FloatingInput.Input id="nome" type="text" />
-            <FloatingInput.Label htmlFor="nome">
-              Como devemos te chamar?
-            </FloatingInput.Label>
-          </FloatingInput.Root>
+        <form onSubmit={handleSubmit(onSubmit)} className="contato__form mt-8">
+          <Controller
+            name="name"
+            control={control}
+            render={({ field }) => (
+              <FloatingInput.Root>
+                <FloatingInput.Input id="name" type="text" {...field} />
+                <FloatingInput.Label htmlFor="name">
+                  Como devemos te chamar?
+                </FloatingInput.Label>
+              </FloatingInput.Root>
+            )}
+          />
 
-          <FloatingInput.Root>
-            <FloatingInput.Input id="telefone" type="text" />
-            <FloatingInput.Label htmlFor="telefone">
-              Seu telefone
-            </FloatingInput.Label>
-          </FloatingInput.Root>
+          <Controller
+            name="phone"
+            control={control}
+            render={({ field }) => (
+              <FloatingInput.Root>
+                <FloatingInput.Input
+                  id="phone"
+                  type="text"
+                  mask="phone"
+                  {...field}
+                />
+                <FloatingInput.Label htmlFor="phone">
+                  Seu telefone
+                </FloatingInput.Label>
+              </FloatingInput.Root>
+            )}
+          />
 
-          <FloatingInput.Root>
-            <FloatingInput.Input id="email" type="text" />
-            <FloatingInput.Label htmlFor="email">
-              Seu melhor E-mail
-            </FloatingInput.Label>
-          </FloatingInput.Root>
+          <Controller
+            name="email"
+            control={control}
+            render={({ field }) => (
+              <FloatingInput.Root>
+                <FloatingInput.Input
+                  id="email"
+                  type="text"
+                  mask="email"
+                  {...field}
+                />
+                <FloatingInput.Label htmlFor="email">
+                  Seu melhor E-mail
+                </FloatingInput.Label>
+              </FloatingInput.Root>
+            )}
+          />
 
           <div className="contato__form-footer">
             <fieldset className="contato-form-footer__policy">
-              <AppCheckBox id="policy" />
+              <Controller
+                name="policy"
+                control={control}
+                render={({ field }) => <AppCheckBox id="policy" {...field} />}
+              />
 
               <label className="subtitle text-medium white-text">
                 Li e aceito os termos de uso dos dados conforme indicado na

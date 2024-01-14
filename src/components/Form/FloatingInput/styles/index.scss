@@ -22,6 +22,24 @@
     outline: none;
 
     color: $text;
+
+    &:focus + .input__floating-label,
+    &.input__floating-label--dirty + .input__floating-label {
+      top: 12px;
+      left: 16px;
+
+      font-size: $floating-label;
+    }
+
+    &:focus,
+    &:focus-visible {
+      outline: 2px solid $primary;
+    }
+
+    &:focus-visible + .input__floating-label {
+      color: $primary;
+      filter: brightness(0.5);
+    }
   }
 
   .input__floating-label {
@@ -37,19 +55,8 @@
     color: $text-opacity;
 
     cursor: text;
+
     transform: translateY(-50%);
     transition: all 0.2s ease-in-out;
-  }
-
-  input:focus + .input__floating-label,
-  .input__floating-label--dirty {
-    top: 12px;
-    left: 16px;
-
-    font-size: $floating-label;
-  }
-
-  input:focus {
-    outline: 2px solid $primary;
   }
 }
