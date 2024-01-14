@@ -11,12 +11,14 @@ import { Divider } from "@components/Divider";
 import DecorAlt from "@images/decor_alt.svg";
 import { useMemo, useState } from "react";
 
+const startBanner: TBanners = "3 Quartos";
+
 export function Plantas() {
-  const [currentPlanta, setCurrentPlanta] = useState<TBanners>("3 Quartos");
+  const [currentPlanta, setCurrentPlanta] = useState<TBanners>(startBanner);
 
   const plantas = useMemo(
-    () => new AvailableBanners("Planta", currentPlanta),
-    [currentPlanta]
+    () => new AvailableBanners("Planta", startBanner),
+    []
   );
 
   return (

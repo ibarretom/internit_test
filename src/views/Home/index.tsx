@@ -10,13 +10,11 @@ import {
 } from "@/components/Sliders/FullScreenSlider/models";
 import { FullScreenSlider } from "@/components/Sliders/FullScreenSlider";
 
+const startBanner: TBanners = "Conforto";
 export function Home() {
-  const [currentBanner, setCurrentBanner] = useState<TBanners>("Conforto");
+  const [currentBanner, setCurrentBanner] = useState<TBanners>(startBanner);
 
-  const banners = useMemo(
-    () => new AvailableBanners("Home", currentBanner),
-    [currentBanner]
-  );
+  const banners = useMemo(() => new AvailableBanners("Home", startBanner), []);
 
   useEffect(() => {
     const sliderInterval = setInterval(() => {

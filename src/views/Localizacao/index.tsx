@@ -1,6 +1,6 @@
 import "@scss/localizacao/index.scss";
 
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect } from "react";
 import { Divider } from "@/components/Divider";
 import { ButtonList } from "@/components/ButtonList";
 import { MapView } from "@/components/MapView";
@@ -11,43 +11,36 @@ import Park from "@images/icons/icons8-park-50.svg";
 import Pet from "@images/icons/icons8-play-with-pet-50.svg";
 import Shop from "@images/icons/icons8-shop-50.svg";
 import Train from "@images/icons/icons8-train-50.svg";
+import {
+  TMapElements,
+  setPosition,
+  useMapRefs,
+} from "@/components/MapView/Hooks";
 
 export function Localizacao() {
-  const mapRef = useRef<SVGSVGElement>(null);
-  const market1RectRef = useRef<SVGRectElement>(null);
-  const market2RectRef = useRef<SVGRectElement>(null);
-  const petRectRef = useRef<SVGRectElement>(null);
-
-  const market1Ref = useRef<HTMLElement>(null);
-  const market2Ref = useRef<HTMLElement>(null);
-  const petRef = useRef<HTMLElement>(null);
+  const { mapRefs, elementsRefs } = useMapRefs();
 
   const putElementsInPosition = useCallback(() => {
-    const mapPosition = mapRef?.current?.getBoundingClientRect();
-    const market1Position = market1RectRef?.current?.getBoundingClientRect();
-    const market2Position = market2RectRef?.current?.getBoundingClientRect();
-    const petPosition = petRectRef?.current?.getBoundingClientRect();
+    for (const key in elementsRefs) {
+      const htmlElement = elementsRefs[key as TMapElements];
 
-    setPosition(market1Ref?.current, mapPosition, market1Position);
-    setPosition(market2Ref?.current, mapPosition, market2Position);
-    setPosition(petRef?.current, mapPosition, petPosition);
-  }, [mapRef, market1RectRef, market2RectRef, petRectRef]);
+      const mapElement = mapRefs[key as TMapElements] as
+        | React.RefObject<SVGAElement>
+        | undefined;
 
-  function setPosition(
-    reference: HTMLElement | null,
-    start?: DOMRect,
-    end?: DOMRect
-  ) {
-    if (!reference || (!start && !end)) return;
+      if (!mapElement) continue;
 
-    reference.style.top = `${(end?.y ?? 0) - (start?.y ?? 0)}px`;
-    reference.style.left = `${(end?.x ?? 0) - (start?.x ?? 0)}px`;
-  }
+      const start = mapRefs.map.current?.getBoundingClientRect();
+      const end = mapElement.current?.getBoundingClientRect();
+
+      setPosition(htmlElement.current as HTMLElement, start, end);
+    }
+  }, [mapRefs, elementsRefs]);
 
   useEffect(() => {
     putElementsInPosition();
     window.addEventListener("resize", putElementsInPosition);
-  }, [mapRef, market1Ref, market2Ref, petRef, putElementsInPosition]);
+  }, [mapRefs, mapRefs, putElementsInPosition]);
 
   return (
     <section id="localizacao">
@@ -130,27 +123,27 @@ export function Localizacao() {
 
       <aside className="localizacao__right">
         <MapView
-          ref={mapRef}
-          market1Ref={market1RectRef}
-          market2Ref={market2RectRef}
-          petRef={petRectRef}
+          ref={mapRefs.map}
+          market1Ref={mapRefs.market1}
+          market2Ref={mapRefs.market2}
+          petRef={mapRefs.pet}
           className="localizacao__banner"
         />
 
         <ButtonList.ButtonIcon
-          ref={market1Ref}
+          ref={elementsRefs.market1}
           className="localizacao__right-floating_button market"
           Icon={() => <img src={Shop} />}
         />
 
         <ButtonList.ButtonIcon
-          ref={market2Ref}
+          ref={elementsRefs.market2}
           className="localizacao__right-floating_button market"
           Icon={() => <img src={Shop} />}
         />
 
         <ButtonList.ButtonIcon
-          ref={petRef}
+          ref={elementsRefs.pet}
           className="localizacao__right-floating_button pet"
           Icon={() => <img src={Pet} />}
         />
