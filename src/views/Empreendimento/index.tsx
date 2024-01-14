@@ -49,7 +49,7 @@ export function Empreendimento() {
           <Divider.Bullet className="left" />
         </Divider.Root>
 
-        <Carrousel.Root count={4}>
+        <Carrousel.Root className="mt-8" count={4}>
           <Carrousel.List>
             <Carrousel.ListItem
               onClick={() =>
