@@ -35,7 +35,7 @@ const schema = yup
     policy: yup
       .boolean()
       .isTrue("Você deve aceitar a política de privacidade.")
-      .required(),
+      .required("Você deve aceitar a política de privacidade."),
   })
   .required();
 

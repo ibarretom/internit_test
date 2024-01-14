@@ -1,8 +1,16 @@
+@import "../defaults/breakpoints.scss";
+
 #plantas {
   position: relative;
 
   display: flex;
   flex-direction: row-reverse;
+
+  @media (width < $md) {
+    display: grid;
+    grid-template-rows: min-content minmax(560px, 1fr);
+    gap: 32px;
+  }
 
   min-height: 100svh;
 
@@ -12,9 +20,35 @@
 
     padding: 0 54px;
 
+    @media (width < $md) {
+      max-width: unset;
+      padding: 0;
+    }
+
+    @media (width < $sm) {
+      .plantas__title {
+        padding-left: 16px;
+      }
+    }
+
     .plantas__actions {
       display: flex;
       flex-direction: column;
+
+      @media (width < $md) {
+        flex-direction: row;
+        justify-content: center;
+        padding: 0 54px;
+      }
+
+      @media (width < $sm) {
+        padding: 0 16px;
+      }
+
+      @media (width <= $xs) {
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
 
       gap: 32px;
 
@@ -32,6 +66,15 @@
     position: absolute;
 
     top: 400px;
+
+    @media (width < $lg) {
+      max-width: 540px;
+      height: 540px;
+    }
+
+    @media (width < $md) {
+      display: none;
+    }
 
     z-index: 1;
   }

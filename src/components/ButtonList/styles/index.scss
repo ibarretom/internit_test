@@ -1,4 +1,5 @@
 @import "../../../assets/scss/defaults/colors.scss";
+@import "../../../assets/scss/defaults/breakpoints.scss";
 
 .button-list {
   list-style: none;
@@ -30,13 +31,15 @@
         display: inline-block;
       }
 
-      &:not(:hover) {
-        .button-list__button-icon {
-          background-image: url("../../../assets/images/icons/losangulo_hover.svg");
-        }
+      @media (width > $sm) {
+        &:not(:hover) {
+          .button-list__button-icon {
+            background-image: url("../../../assets/images/icons/losangulo_hover.svg");
+          }
 
-        .button-list__button-text {
-          color: $gray;
+          .button-list__button-text {
+            color: $gray;
+          }
         }
       }
 
@@ -46,7 +49,7 @@
         }
 
         .button-list__button-text {
-          color: $gray;
+          color: $text;
         }
       }
     }

@@ -1,5 +1,6 @@
-import { SideBar } from "./components/SideBar";
 import "./assets/scss/index.scss";
+
+import { SideBar } from "./components/SideBar";
 import { Content } from "./views/Content";
 
 function App() {

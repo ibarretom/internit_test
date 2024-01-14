@@ -1,5 +1,3 @@
-import "../../assets/scss/empreendimento/index.scss";
-
 import { Home } from "../Home";
 import { Plantas } from "../Plantas";
 import { Contato } from "../Contato";

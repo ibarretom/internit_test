@@ -1,6 +1,22 @@
 @import "../../../../assets/scss/defaults/colors.scss";
+@import "../../../../assets/scss/defaults/breakpoints.scss";
 
 .carousel__nav {
+  max-width: 630px;
+  margin-inline: auto;
+
+  @media (width <= $xs) {
+    max-width: 345px;
+  }
+
+  @media ($xs < width <= $sm) {
+    max-width: 630px;
+  }
+
+  @media ($md <= width <= 1590px) {
+    max-width: 440px;
+  }
+
   .carrousel__banners {
     display: flex;
     gap: var(--elements-gap);
@@ -45,7 +61,7 @@
       margin-inline: auto;
       margin-top: 24px;
 
-      width: 495px;
+      width: 100%;
       height: 2px;
 
       background: $secondary;

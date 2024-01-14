@@ -1,4 +1,5 @@
 @import "../defaults/text.scss";
+@import "../defaults//breakpoints.scss";
 
 #contato {
   position: relative;
@@ -11,6 +12,15 @@
 
     margin-block-start: 168px;
     margin-right: 124px;
+
+    @media (width < $md) {
+      margin-inline: auto;
+      margin-block: auto;
+    }
+
+    @media (width < $sm) {
+      padding-inline: 32px;
+    }
 
     max-width: 562px;
   }
@@ -31,6 +41,15 @@
     top: -80px;
     left: 0;
 
+    @media (width < $lg) {
+      max-width: 540px;
+      height: 540px;
+    }
+
+    @media (width < $sm) {
+      max-width: 320px;
+      height: 320px;
+    }
     z-index: -1;
   }
 

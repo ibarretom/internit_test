@@ -1,13 +1,18 @@
 @import "colors";
+@import "breakpoints";
+
 @import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
 
 $font-family: "QuickSand";
 
 $headline1: 4.5rem;
+$headline1-xs: 3rem;
 $headline1-lineheight: normal;
 $headline2: 3rem;
+$headline2-xs: 2.25rem;
 $headline2-lineheight: 3.75rem;
 $headline3: 2.25rem;
+$headline3-xs: 1.75rem;
 $headline3-lineheight: normal;
 $headline-weight: 400;
 $headline-strong: 400;
@@ -15,18 +20,22 @@ $headline-strong: 400;
 $headline-text-transform: uppercase;
 
 $body: 1.5rem;
+$body-xs: 1.125rem;
 $body-lineheight: normal;
 $body-weight: 400;
 
 $body2: 1.125rem;
+$body2-xs: 0.875rem;
 $body2-lineheight: normal;
 $body2-weight: 400;
 
 $subtitle: 0.875rem;
+$subtitle-xs: 0.75rem;
 $subtitle-lineheight: normal;
 $subtitle-weight: 400;
 
 $button: 1.5rem;
+$button-xs: 1.125rem;
 $button-lineheight: normal;
 $button-weight: 400;
 
@@ -41,6 +50,10 @@ $floating-label: 0.75rem;
   text-transform: $headline-text-transform;
 
   color: $text;
+
+  @media (width < $xs) {
+    font-size: $headline1-xs;
+  }
 }
 
 .h2 {
@@ -51,6 +64,10 @@ $floating-label: 0.75rem;
   text-transform: $headline-text-transform;
 
   color: $text;
+
+  @media (width <= $xs) {
+    font-size: $headline2-xs;
+  }
 }
 
 .h3 {
@@ -61,6 +78,10 @@ $floating-label: 0.75rem;
   text-transform: $headline-text-transform;
 
   color: $text;
+
+  @media (width <= $xs) {
+    font-size: $headline3-xs;
+  }
 }
 
 .body {
@@ -70,6 +91,10 @@ $floating-label: 0.75rem;
   line-height: $body-lineheight;
 
   color: $text;
+
+  @media (width <= $xs) {
+    font-size: $body-xs;
+  }
 }
 
 .body2 {
@@ -79,6 +104,10 @@ $floating-label: 0.75rem;
   line-height: $body2-lineheight;
 
   color: $text;
+
+  @media (width <= $xs) {
+    font-size: $body2-xs;
+  }
 }
 
 .subtitle {
@@ -88,6 +117,10 @@ $floating-label: 0.75rem;
   line-height: $subtitle-lineheight;
 
   color: $text;
+
+  @media (width <= $xs) {
+    font-size: $subtitle-xs;
+  }
 }
 .button {
   font-family: $font-family;
@@ -96,6 +129,10 @@ $floating-label: 0.75rem;
   line-height: $button-lineheight;
 
   color: $text;
+
+  @media (width <= $xs) {
+    font-size: $button-xs;
+  }
 }
 
 .text-strong {

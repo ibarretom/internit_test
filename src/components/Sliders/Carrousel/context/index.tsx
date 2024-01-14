@@ -37,7 +37,7 @@ export function CarouselProvider({
   const totalSize = useMemo(() => {
     const carouselTotalSize = imageSize * count;
     const carouselTotalGap = imageGap * (count - 1);
-    console.log(carouselTotalSize + carouselTotalGap);
+
     return carouselTotalSize + carouselTotalGap;
   }, [count, imageSize]);
 

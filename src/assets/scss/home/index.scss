@@ -1,5 +1,6 @@
 @import "../defaults/text.scss";
 @import "../defaults/colors.scss";
+@import "../defaults/breakpoints.scss";
 
 $slider-duration: 2s;
 $fade-duration: 1s;
@@ -17,6 +18,9 @@ $fade-duration: 1s;
     margin-bottom: 48px;
 
     padding-inline-start: 32px;
+    @media (width <= $xs) {
+      padding-inline: 24px;
+    }
 
     .home__hero-text {
       position: relative;
@@ -84,12 +88,32 @@ $fade-duration: 1s;
   }
 
   .home__hero-flying-image {
+    $flying-image-max-width: 987px;
+    $flying-image-md-nax-height: 800px;
+    $flying-image-lg-nax-height: 1237px;
+
+    $flying-image-top-md: unset;
+    $flying-image-top-lg: 96px;
+    $flying-image-bottom-md: -247px;
+    $flying-image-bottom-lg: unset;
+
     position: absolute;
-    top: 97px;
+    top: $flying-image-top-md;
+    bottom: $flying-image-bottom-md;
     right: 0;
 
-    max-width: 987px;
-    height: 1237px;
+    max-width: $flying-image-max-width;
+    height: $flying-image-md-nax-height;
+
+    @media (width <= $md) {
+      display: none;
+    }
+
+    @media (min-width: $lg) {
+      height: $flying-image-lg-nax-height;
+      top: $flying-image-top-lg;
+      bottom: $flying-image-bottom-lg;
+    }
 
     z-index: -1;
   }

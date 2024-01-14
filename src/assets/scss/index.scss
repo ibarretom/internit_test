@@ -1,7 +1,10 @@
-.page__wrapper {
-  display: flex;
+@import "./defaults/breakpoints.scss";
 
-  .page__contet {
-    flex-grow: 1;
+.page__wrapper {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+
+  @media (width <= $sm) {
+    display: block;
   }
 }

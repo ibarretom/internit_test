@@ -8,6 +8,15 @@
   scroll-behavior: smooth; /* by Igor Meirelles */
 }
 
+
+#root {
+  /* background-color: rgba(0, 0, 0, 0.5); */
+}
+
+body {
+  margin: 0;/* by Igor Meirelles */
+}
+
 /* Remove default margin */
 body,
 h1,
@@ -47,7 +56,7 @@ a:not([class]) {
 
 /* Make images easier to work with */
 img,
-picture {
+picture, svg {
   max-width: 100%;
   display: block;
 }

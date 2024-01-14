@@ -1,3 +1,5 @@
+import "@scss/empreendimento/index.scss";
+
 import { Divider } from "@components/Divider";
 
 import Carrousel1 from "@images/empreendimento/carrousel1.png";
@@ -23,7 +25,9 @@ export function Empreendimento() {
   return (
     <section id="empreendimento">
       <main>
-        <h3 className="h3 text-strong mt-4">O empreendimento</h3>
+        <h3 className="h3 text-strong mt-4 empreendimento__title">
+          O empreendimento
+        </h3>
 
         <Divider.Root>
           <Divider.Line />
@@ -72,15 +76,17 @@ export function Empreendimento() {
         </Carrousel.Root>
       </main>
 
-      <FullScreenSlider.Image.Root className="pictures">
-        {empreendimentoSlider.available.map((slide) => (
-          <FullScreenSlider.Image.Element
-            banner={slide}
-            isVisible={slide.id == currentSlide}
-            key={slide.id}
-          />
-        ))}
-      </FullScreenSlider.Image.Root>
+      <aside className="pictures">
+        <FullScreenSlider.Image.Root>
+          {empreendimentoSlider.available.map((slide) => (
+            <FullScreenSlider.Image.Element
+              banner={slide}
+              isVisible={slide.id == currentSlide}
+              key={slide.id}
+            />
+          ))}
+        </FullScreenSlider.Image.Root>
+      </aside>
     </section>
   );
 }

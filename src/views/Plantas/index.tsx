@@ -24,7 +24,7 @@ export function Plantas() {
   return (
     <section id="plantas">
       <main>
-        <h3 className="h3 text-strong">Plantas</h3>
+        <h3 className="h3 text-strong plantas__title">Plantas</h3>
 
         <Divider.Root>
           <Divider.Line />

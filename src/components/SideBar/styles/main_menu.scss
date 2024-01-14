@@ -1,19 +1,33 @@
 @import "../../../assets/scss/defaults/colors.scss";
 @import "../../../assets/scss/defaults/text.scss";
+@import "../../../assets/scss/defaults/breakpoints.scss";
 
 $padding-nav-left: 64px;
+$padding-nav-left-sm: 24px;
 
 .main-menu {
+  @media (width < $sm) {
+    display: none;
+  }
+
   align-self: flex-start;
   position: sticky;
   top: 0;
 
-  max-width: 330px;
+  width: 330px;
 
   padding: 48px 24px 0 $padding-nav-left;
 
   .main-menu__logo {
     margin-inline: 24px;
+  }
+
+  @media (width < $md) {
+    padding-inline-start: $padding-nav-left-sm;
+
+    .main-menu__logo {
+      margin-inline: auto;
+    }
   }
 
   .main-menu__nav-list {
@@ -33,6 +47,9 @@ $padding-nav-left: 64px;
       padding-inline-start: $padding-nav-left;
       padding-block: 16px;
 
+      @media (width < $md) {
+        padding-inline-start: -$padding-nav-left-sm;
+      }
       &::after {
         content: "";
 
