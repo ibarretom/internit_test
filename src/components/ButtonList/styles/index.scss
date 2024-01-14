@@ -1,0 +1,45 @@
+@import "../../../assets/scss/defaults/colors.scss";
+
+.button-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .button-list__content-wrapper {
+    & + .button-list__content-wrapper {
+      margin-block-start: 32px;
+    }
+
+    transition: all ease 200ms;
+
+    .button-list__button {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+
+      width: 100%;
+
+      padding: 0;
+
+      background-color: transparent;
+      border: none;
+
+      cursor: pointer;
+
+      span {
+        display: inline-block;
+      }
+
+      &:not(:hover),
+      &.button-list__button--active {
+        .button-list__button-icon {
+          background-image: url("../../../assets/images/icons/losangulo_hover.svg");
+        }
+
+        .button-list__button-text {
+          color: $gray;
+        }
+      }
+    }
+  }
+}
