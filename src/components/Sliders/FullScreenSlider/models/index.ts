@@ -9,6 +9,8 @@ import { IFullScreenSliderTextProps } from "../Text";
 import Quartos3 from "@images/plantas/3Quartos.png";
 import Quartos2 from "@images/plantas/2Quartos.png";
 import Cobertura from "@images/plantas/Cobertura.png";
+import PlantaCobertura from "@images/plantas/planta_cobertura.png";
+import Planta2Quartos from "@images/plantas/planta_2quartos.png";
 
 import Slide1 from "@images/empreendimento/slide1.png";
 import Slide2 from "@images/empreendimento/slide2.png";
@@ -25,6 +27,7 @@ export type TBannerElement = {
   id: TBanners;
   img: string;
   text?: (object: IFullScreenSliderTextProps) => JSX.Element;
+  imgDetails?: string;
 };
 
 type TApplicationBanners = {
@@ -39,9 +42,9 @@ export class AvailableBanners {
       { id: "Memoria", img: Memoria, text: MemoriasText },
     ],
     Planta: [
-      { id: "3 Quartos", img: Quartos3 },
-      { id: "2 Quartos", img: Quartos2 },
-      { id: "Cobertura", img: Cobertura },
+      { id: "3 Quartos", img: Quartos3, imgDetails: Planta2Quartos },
+      { id: "2 Quartos", img: Quartos2, imgDetails: Planta2Quartos },
+      { id: "Cobertura", img: Cobertura, imgDetails: PlantaCobertura },
     ],
     Empreendimento: [
       { id: "Slide 1", img: Slide1 },
