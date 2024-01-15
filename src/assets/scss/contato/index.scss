@@ -22,7 +22,56 @@
       padding-inline: 32px;
     }
 
+    @media (width < 375px) {
+      padding-inline: 16px;
+    }
+
     max-width: 562px;
+
+    .contato__form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .contato__form-footer {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        padding-inline-start: 16px;
+
+        .contato-form-footer__policy {
+          display: grid;
+          grid-template-columns: min-content 1fr;
+          gap: 8px;
+
+          border: 0;
+          padding: 0;
+          margin: 0;
+        }
+
+        button[type="submit"] {
+          padding: 0px 32px;
+
+          background-color: $primary;
+          border: none;
+
+          font-size: $body;
+
+          transition: all ease 200ms;
+        }
+
+        button[type="submit"]:hover {
+          filter: brightness(0.8);
+        }
+
+        button:focus-visible {
+          outline: 2px solid $primary;
+          outline-offset: 2px;
+          border-radius: 2px;
+        }
+      }
+    }
   }
 
   .contato__bg-img {
@@ -51,50 +100,5 @@
       height: 320px;
     }
     z-index: -1;
-  }
-
-  .contato__form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
-    .contato__form-footer {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-
-      padding-inline-start: 16px;
-
-      .contato-form-footer__policy {
-        display: grid;
-        grid-template-columns: min-content 1fr;
-        gap: 8px;
-
-        border: 0;
-        padding: 0;
-        margin: 0;
-      }
-
-      button[type="submit"] {
-        padding: 0px 32px;
-
-        background-color: $primary;
-        border: none;
-
-        font-size: $body;
-
-        transition: all ease 200ms;
-      }
-
-      button[type="submit"]:hover {
-        filter: brightness(0.8);
-      }
-
-      button:focus-visible {
-        outline: 2px solid $primary;
-        outline-offset: 2px;
-        border-radius: 2px;
-      }
-    }
   }
 }

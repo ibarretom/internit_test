@@ -44,6 +44,10 @@
       @media (width < $md) {
         padding-inline: 24px;
       }
+
+      @media (width < 375px) {
+        padding-inline: 0;
+      }
     }
   }
 
@@ -52,8 +56,13 @@
     flex-grow: 1;
 
     .localizacao__banner {
-      width: 100%;
       height: 100%;
+    }
+
+    @media (width < 375px) {
+      .localizacao__banner {
+        width: clamp(320px, 100%, 375px);
+      }
     }
 
     .localizacao__right-floating_button {

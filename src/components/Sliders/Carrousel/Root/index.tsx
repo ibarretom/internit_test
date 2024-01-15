@@ -2,6 +2,7 @@ import "../styles/index.scss";
 
 import { CarouselProvider } from "../context";
 import { useCarousel } from "../hooks";
+import { forwardRef, useRef } from "react";
 
 interface IProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -16,10 +17,14 @@ export function Root({
   style = {},
   ...rest
 }: IProps) {
-  const Nav = () => {
+  const navRef = useRef<HTMLDivElement>(null);
+
+  const Nav = forwardRef<HTMLDivElement>((_, ref) => {
     const { imageSize, imageGap } = useCarousel();
+
     return (
       <nav
+        ref={ref}
         className={`carousel__nav ${className}`}
         style={
           {
@@ -33,11 +38,11 @@ export function Root({
         {children}
       </nav>
     );
-  };
+  });
 
   return (
-    <CarouselProvider count={count}>
-      <Nav />
+    <CarouselProvider count={count} parentRef={navRef}>
+      <Nav ref={navRef} />
     </CarouselProvider>
   );
 }

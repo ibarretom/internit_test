@@ -48,7 +48,7 @@ export function Localizacao() {
     <section id="localizacao">
       <main>
         <div className="localizacao__header">
-          <h3 className="h3 text-strong">Localização</h3>
+          <h3 className="h3 text-strong localizacao__title">Localização</h3>
 
           <Divider.Root>
             <Divider.Line />

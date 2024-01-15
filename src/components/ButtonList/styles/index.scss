@@ -34,6 +34,7 @@
       @media (width <= $sm) {
         gap: 8px;
       }
+
       width: 100%;
 
       padding: 0;
@@ -70,6 +71,18 @@
 
         .button-list__button-text {
           color: $text;
+        }
+      }
+
+      &:not(.button-list__button--active) {
+        &:not(:hover) {
+          .button-list__button-icon {
+            background-image: url("../../../assets/images/icons/losangulo_hover.svg");
+          }
+
+          .button-list__button-text {
+            color: $gray;
+          }
         }
       }
     }

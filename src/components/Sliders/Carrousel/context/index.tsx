@@ -15,10 +15,10 @@ interface IProps {
   children: React.ReactNode;
   count: number;
   size?: "medium";
-  pageSize?: number;
+  parentRef: React.RefObject<HTMLDivElement>;
 }
 
-const carrouselSizes = {
+const carrouselImageSizes = {
   medium: 194,
 };
 
@@ -28,11 +28,11 @@ export function CarouselProvider({
   children,
   count,
   size = "medium",
-  pageSize = 630,
+  parentRef,
 }: IProps) {
   const [range, setRange] = useState(0);
 
-  const imageSize = useMemo(() => carrouselSizes[size], [size]);
+  const imageSize = useMemo(() => carrouselImageSizes[size], [size]);
 
   const totalSize = useMemo(() => {
     const carouselTotalSize = imageSize * count;
@@ -43,11 +43,12 @@ export function CarouselProvider({
 
   const listOffset = useMemo(() => {
     const rangePercentage = range / 100;
+    const parentSize = parentRef.current?.getBoundingClientRect().width ?? 0;
 
-    const amountOverflowing = totalSize - pageSize;
+    const amountOverflowing = totalSize - parentSize;
 
     return -rangePercentage * amountOverflowing;
-  }, [range, totalSize, pageSize]);
+  }, [range, totalSize, parentRef]);
 
   return (
     <CarouselContext.Provider

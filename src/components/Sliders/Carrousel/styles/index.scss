@@ -5,16 +5,13 @@
   max-width: 630px;
   margin-inline: auto;
 
-  @media (width <= $xs) {
-    max-width: 345px;
-  }
+  max-width: clamp(280px, calc(100%), 630px);
 
-  @media ($xs < width <= $sm) {
-    max-width: 630px;
+  @media ($md < width < $lg) {
+    margin-inline-end: 16px;
   }
-
-  @media ($md <= width <= 1590px) {
-    max-width: 440px;
+  @media (width < $sm) {
+    padding-inline-start: 16px;
   }
 
   .carrousel__banners {
