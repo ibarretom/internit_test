@@ -29,7 +29,6 @@ export function Root({
   }, [onActivatorClick]);
 
   const handleCloseClick = useCallback(() => {
-    console.log("click");
     if (onCloseClick) {
       onCloseClick(modalRef.current as HTMLDialogElement);
       return;

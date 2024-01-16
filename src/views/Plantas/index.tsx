@@ -9,7 +9,7 @@ import { Button } from "@/components/Buttons/Button";
 import { Divider } from "@components/Divider";
 
 import DecorAlt from "@images/decor_alt.svg";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { Dialog } from "@/components/Dialog";
 
 const startBanner: TBanners = "3 Quartos";
@@ -21,6 +21,16 @@ export function Plantas() {
     () => new AvailableBanners("Planta", startBanner),
     []
   );
+
+  const modalRef = useRef<HTMLDialogElement>(null);
+
+  const handleActivatorClick = () => {
+    modalRef.current?.showModal();
+  };
+
+  const handleCloseClick = () => {
+    modalRef.current?.close();
+  };
 
   return (
     <>
@@ -50,6 +60,7 @@ export function Plantas() {
           {plantas.available.map((planta) => {
             return (
               <FullScreenSlider.Image.Element
+                onClick={handleActivatorClick}
                 banner={planta}
                 isVisible={currentPlanta === planta.id}
                 key={planta.id}
@@ -72,6 +83,21 @@ export function Plantas() {
               );
             })}
           </Dialog.Root>
+
+          <Dialog.Element ref={modalRef}>
+            {plantas.available.map((planta) => {
+              return planta.imgDetails ? (
+                <Dialog.Image
+                  src={planta.imgDetails}
+                  isVisible={planta.id === currentPlanta}
+                />
+              ) : (
+                <></>
+              );
+            })}
+
+            <Dialog.Close onClick={handleCloseClick} />
+          </Dialog.Element>
         </FullScreenSlider.Image.Root>
 
         <img src={DecorAlt} className="plantas__flying-imag" />
