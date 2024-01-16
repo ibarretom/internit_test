@@ -9,7 +9,7 @@ import { Button } from "@/components/Buttons/Button";
 import { Divider } from "@components/Divider";
 
 import DecorAlt from "@images/decor_alt.svg";
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Dialog } from "@/components/Dialog";
 
 const startBanner: TBanners = "3 Quartos";
