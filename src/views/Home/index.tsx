@@ -26,7 +26,7 @@ export function Home() {
 
   return (
     <section id="home">
-      <main className="home__hero">
+      <div className="home__hero">
         <FullScreenSlider.Text.Root>
           {banners.available.map((banner: TBannerElement) => {
             return banner.text ? (
@@ -41,7 +41,7 @@ export function Home() {
         </FullScreenSlider.Text.Root>
 
         <CTA href="#contato">marque uma visita</CTA>
-      </main>
+      </div>
 
       <FullScreenSlider.Image.Root className="home__banner">
         {banners.available.map((banner: TBannerElement) => {

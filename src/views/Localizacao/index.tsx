@@ -46,7 +46,7 @@ export function Localizacao() {
 
   return (
     <section id="localizacao">
-      <main>
+      <div className="localizacao__content-wrapper">
         <div className="localizacao__header">
           <h3 className="h3 text-strong localizacao__title">Localização</h3>
 
@@ -134,7 +134,7 @@ export function Localizacao() {
             </ButtonList.Root>
           </nav>
         </div>
-      </main>
+      </div>
 
       <aside className="localizacao__right">
         <MapView

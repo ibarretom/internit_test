@@ -25,7 +25,7 @@ export function Plantas() {
   return (
     <>
       <section id="plantas">
-        <main>
+        <div className="plantas__content-wrapper">
           <h3 className="h3 text-strong plantas__title">Plantas</h3>
 
           <Divider.Root>
@@ -44,7 +44,7 @@ export function Plantas() {
               </Button>
             ))}
           </div>
-        </main>
+        </div>
 
         <FullScreenSlider.Image.Root className="plantas__pictures">
           {plantas.available.map((planta) => {

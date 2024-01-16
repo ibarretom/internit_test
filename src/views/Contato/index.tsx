@@ -68,7 +68,7 @@ export function Contato() {
 
   return (
     <section id="contato">
-      <main>
+      <div className="contato__content-wrapper">
         <h2 className="h2 text-strong white-text">Ficou interessado?</h2>
         <p className="body text-strong white-text">
           Preencha o formulário abaixo e um de nossos consultores entrará em
@@ -159,7 +159,7 @@ export function Contato() {
             <button type="submit">Enviar</button>
           </div>
         </form>
-      </main>
+      </div>
 
       <img src={ContatoImg} className="contato__bg-img" />
       <img src={DecorFull} className="contato__floating-image" />

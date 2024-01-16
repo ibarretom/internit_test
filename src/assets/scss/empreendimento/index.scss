@@ -13,7 +13,7 @@
 
   min-height: 100svh;
 
-  main {
+  .empreendimento__content-wrapper {
     @media (width < $sm) {
       .empreendimento__title {
         padding-inline-start: 16px;

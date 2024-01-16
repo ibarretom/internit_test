@@ -24,7 +24,7 @@ export function Empreendimento() {
   );
   return (
     <section id="empreendimento">
-      <main>
+      <div className="empreendimento__content-wrapper">
         <h3 className="h3 text-strong mt-4 empreendimento__title">
           O empreendimento
         </h3>
@@ -74,7 +74,7 @@ export function Empreendimento() {
           </Carrousel.List>
           <Carrousel.RangeWithContext />
         </Carrousel.Root>
-      </main>
+      </div>
 
       <aside className="pictures">
         <FullScreenSlider.Image.Root>
