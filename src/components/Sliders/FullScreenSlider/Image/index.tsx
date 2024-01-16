@@ -15,7 +15,6 @@ export function Image({
     <img
       className={`full-screen-slider__image ${className}`}
       src={banner.img}
-      alt="Sala de estar"
       data-visible={isVisible}
       key={banner.id}
       {...rest}
