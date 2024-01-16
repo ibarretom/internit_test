@@ -28,15 +28,22 @@ Observações:
 
 - Cada botão a direita traz uma planta [x]
 - Quando clicarmos na imagem da planta, ela será exibida de forma ampliada. [x]
+  - Feito 2 versões, ao clicar na imagem e no botão de lupa.
 
 4ª seção (LOCALIZAÇÃO)
 
-- Mapa com a localização
-- Na lista de ícones, teremos um mouseover, ao passar o mouse nos ícones, ele acenderá no mapa a localização
+- Mapa com a localização [x]
+- Na lista de ícones, teremos um mouseover, ao passar o mouse nos ícones, ele acenderá no mapa a localização [x]
+
+  - É bem difícil posicionar os pinpoints no mapa quando não se tem nenhuma referência da posição deles no mapa, principalmente quando a imagem é responsiva. Pensando nisso fiz um svg com a imagem do mapa e posicionei 3 triângulos representando o exato local em que as localizações desejadas estão.
+
+  Com o SVG pronto, utilizei os refs do react para pegar a melhor posição dos pinpoints com relação ao mapa.
 
 5ª seção (CONTATO)
 
-- Formulário com nome, telefone e e-mail.
-- No campo de telefone e e-mail teremos que usar máscara.
-- Nos campos do formulário, o ideal é que se use o "Floating labels"
+- Formulário com nome, telefone e e-mail. [x]
+- No campo de telefone e e-mail teremos que usar máscara. [x]
+  - Não entendi o que seria uma máscara de email, mas fim uma implementação pela interpretação que tive, a qual após o arroba o único caractere não alfanumérico deve ser o ponto.
+- Nos campos do formulário, o ideal é que se use o "Floating labels" [x]
 - Todos os campos são obrigatórios.
+  - Implementado validação de formulário com a biblioteca yup.
