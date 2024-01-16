@@ -1,4 +1,24 @@
-Observações:
+## Tecnologias e dependências
+
+- Vite
+- React Hook form
+- YUP
+
+## Rodando o projeto
+
+```
+git clone https://github.com/ibarretom/internit_test.git
+```
+
+```
+npm install
+```
+
+```
+npm run dev
+```
+
+## Observações:
 
 1. Formulário de contato não precisa funcionar, mas estar recortado. [x]
 2. Precisa ter title e description. [x]
