@@ -4,9 +4,11 @@ import { Contato } from "../../Contato";
 import { Localizacao } from "../../Localizacao";
 import { Empreendimento } from "../../Empreendimento";
 
+import Internit from "@images/internit.png";
+
 export function Content() {
   return (
-    <main className="page__contet">
+    <main className="page__content">
       <Home />
 
       <Empreendimento />
@@ -18,8 +20,8 @@ export function Content() {
       <Contato />
 
       <footer>
-        <p>Desenvolvido por</p>
-        <img src="" />
+        <p className="body2 text-strong">Desenvolvido por</p>
+        <img src={Internit} />
       </footer>
     </main>
   );
