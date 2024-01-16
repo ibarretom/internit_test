@@ -1,6 +1,6 @@
 ## Visualização do projeto
 
-(https://internittest.netlify.app/)[]
+(Deploy no netlify)[https://internittest.netlify.app/]
 
 ## Tecnologias e dependências
 
