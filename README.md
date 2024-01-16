@@ -1,3 +1,7 @@
+## Visualização do projeto
+
+(https://internittest.netlify.app/)[]
+
 ## Tecnologias e dependências
 
 - Vite
